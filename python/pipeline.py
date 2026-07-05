@@ -8,25 +8,29 @@ def carregar_dados(caminho):
 
 def validar_dados(df):
 
-    print("\nDimensão da base")
+    print("\nDimensão da base") #verifficar quantos elementos tem nessa tabela linhas e colunas
     print(df.shape)
 
-    print("\nNome das colunas")
+    print("\nNome das colunas") #organizar os nomes das colunar para ver pesquisa em SQL
     print(df.columns)
 
-    print("\nInformações da base")
+    print("\nInformações da base") #só para ver os tipos dos atributos e se possui alguma valor nulo, o que facilita parte do trabalho de datacleaning
     print(df.info())
 
-    print("\nDescrição estatística")
+    print("\nDescrição estatística") #apresentação das medidas resumos, media, mediana, quartis, desvio padrão
     print(df.describe())
 
-    print("\nValores nulos")
+    print("\nValores nulos") #contar nulos, dessa vez deixando explicito cada coluna
     print(df.isnull().sum())
 
-    print("\nDuplicados")
+    print("\nDuplicados") #contar dados duplicados o que facilita a limpeza
     print(df.duplicated().sum())
 
-    print(df.head())
+    print("\nValores únicos", end ="\n") #descobri os valores semelhantes que tem no banco, ajuda a depois saber quais podem ser agruados em faixas
+    print(df.nunique()) 
+
+    print(df.head()) #apresenta as primeiras 5 linhas da tabela para conferiro modelo dos dados
+
 #conectar com o banco de dados
 def criar_banco(df, nome_banco):
 
