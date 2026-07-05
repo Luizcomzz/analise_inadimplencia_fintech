@@ -52,7 +52,7 @@ O projeto será desenvolvido seguindo as seguintes etapas:
 - Entendimento das variáveis
 - Identificação do problema de negócio
 
-* 2. Importação e validação
+### 2. Importação e validação
 
 Utilização do Python e da biblioteca Pandas para importar a base de dados e realizar verificações de qualidade, incluindo:
 
@@ -62,11 +62,11 @@ Utilização do Python e da biblioteca Pandas para importar a base de dados e re
 - consistência das datas
 - padronização das informações
 
-* 3. Modelagem dos dados
+### 3. Modelagem dos dados
 
 Importação da base para um banco SQLite, permitindo a realização de consultas SQL e a organização dos dados para análise.
 
-* 4. Análise exploratória
+### 4. Análise exploratória
 
 Realização de consultas SQL para identificar:
 
@@ -75,31 +75,31 @@ Realização de consultas SQL para identificar:
 - relações entre variáveis
 - padrões de comportamento dos clientes
 
-* 5. Geração de Insights
+### 5. Geração de Insights
 
 Comparação das hipóteses iniciais com os resultados encontrados, apresentando interpretações e recomendações de negócio.
 
-### Reflexao 1
+#### Reflexao 1
 Clientes com menor score de crédito apresentam maior taxa de inadimplência:
 Falso o grupo com o score na faixa de 300 à 449 é o que tem a maior taxa de inadimplencia 
 
-### Reflexão 2
+#### Reflexão 2
 A idade influencia a probabilidade de inadimplência.
 Não tanto, pois existem outros fatores mais influentes, onde o percentual maior era de até 26 anos com 22.66%
 
-### Reflexão 3
+#### Reflexão 3
 O gênero apresenta diferenças relevantes na taxa de inadimplência.
 Não significativa, pois os resultados estavam equilibrados e bem proximo a taxa de 18.10%
 
-### Reflexão 4
+#### Reflexão 4
 Clientes com menor tempo de relacionamento apresentam maior risco.
 Essa hipotese estava certo, pois clientes com relacionamento até 149 dias tem um percentual de inadimplência de 23.10%
 
-### Reflexão 5
+#### Reflexão 5
 O canal de aquisição influencia o comportamento de pagamento.
 Sim tanto que foi um dos fatores mais criticos, sendo o Marketplace B tem um percentual inadimplência de 32.69%
 
-### 6. Visualização
+#### 6. Visualização
 
 Desenvolvimento de um dashboard no Power BI utilizando consultas SQL e views para facilitar a comunicação dos resultados.
 
