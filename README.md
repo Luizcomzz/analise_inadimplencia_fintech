@@ -1,5 +1,5 @@
 # Análise de Inadimplência em Operações de Crédito
-Projeto de análise de dados desenvolvido a partir de uma base fictícia de contratos de empréstimo de uma fintech especializada em crédito para clientes das classes C e D.
+Projeto de análise de dados desenvolvido a partir de uma base fictícia de contratos de empréstimo de uma fintech especializada em crédito para clientes das classes C e D. Os dados utilizados nesta análise pertencem a uma base fictícia de 5.000 contratos de empréstimo fornecida para o desafio técnico. Por motivos de boas práticas e privacidade, o arquivo original de dados foi omitido deste repositório através do
 
 O objetivo é identificar os principais fatores associados à inadimplência, compreender quais perfis concentram maior risco de crédito e propor recomendações que auxiliem a empresa na tomada de decisão.
 
