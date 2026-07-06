@@ -5,7 +5,7 @@ O objetivo é identificar os principais fatores associados à inadimplência, co
 
 Durante o projeto serão utilizadas técnicas de análise exploratória, SQL, Python (Pandas) e Power BI para transformar dados em informações estratégicas.
 
-## Objetivo:
+## Objetivo
 Desenvolver um processo analítico capaz de identificar quais características dos clientes estão associadas à inadimplência, fornecendo informações que apoiem decisões de concessão de crédito e contribuam para a redução das perdas financeiras sem comprometer excessivamente o volume de empréstimos aprovados.
 
 ## Dashboard
