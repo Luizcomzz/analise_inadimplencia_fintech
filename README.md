@@ -46,7 +46,7 @@ O canal de aquisição influencia o comportamento de pagamento.
 
 O projeto será desenvolvido seguindo as seguintes etapas:
 
-* 1. Compreensão dos dados
+Compreensão dos dados:
 
 - Estudo do dicionário de dados
 - Entendimento das variáveis
@@ -99,7 +99,7 @@ Essa hipotese estava certo, pois clientes com relacionamento até 149 dias tem u
 O canal de aquisição influencia o comportamento de pagamento.
 Sim tanto que foi um dos fatores mais criticos, sendo o Marketplace B tem um percentual inadimplência de 32.69%
 
-#### 6. Visualização
+### 6. Visualização
 
 Desenvolvimento de um dashboard no Power BI utilizando consultas SQL e views para facilitar a comunicação dos resultados.
 
