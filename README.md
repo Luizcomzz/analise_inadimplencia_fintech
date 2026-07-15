@@ -52,7 +52,7 @@ Compreensão dos dados:
 - Entendimento das variáveis
 - Identificação do problema de negócio
 
-### 2. Importação e validação
+### 2. Importação e exploração
 
 Utilização do Python e da biblioteca Pandas para importar a base de dados e realizar verificações de qualidade, incluindo:
 

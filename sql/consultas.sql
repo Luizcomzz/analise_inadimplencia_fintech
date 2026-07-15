@@ -17,7 +17,7 @@ FROM contratos;
 SELECT
     canal_aquisicao,
     COUNT(*) AS total_por_canal,
-    SUM(CASE WHEN inadimplente_90d = 1 THEN 1 ELSE 0 END) AS total_inadimplentes,
+    SUM(inadimplente_90d) AS total_inadimplentes,
     ROUND(SUM(CASE WHEN inadimplente_90d = 1 THEN 1.0 ELSE 0 END) / COUNT(*) * 100, 2) AS percentual_inadimplencia
 FROM contratos
 GROUP BY canal_aquisicao
@@ -27,7 +27,7 @@ ORDER BY percentual_inadimplencia DESC;
 SELECT
     possui_restricao,
     COUNT(*) AS total_por_canal,
-    SUM(CASE WHEN inadimplente_90d = 1 THEN 1 ELSE 0 END) AS total_inadimplentes,
+    SUM(inadimplente_90d) AS total_inadimplentes,
     ROUND(SUM(CASE WHEN inadimplente_90d = 1 THEN 1.0 ELSE 0 END) / COUNT(*) * 100, 2) AS percentual_inadimplencia
 FROM contratos
 GROUP BY possui_restricao
@@ -72,7 +72,7 @@ ORDER BY faixa_score;
 SELECT
     num_emprestimos_anteriores,
     COUNT(*) AS total_por_canal,
-    SUM(CASE WHEN inadimplente_90d = 1 THEN 1 ELSE 0 END) AS total_inadimplentes,
+    SUM(inadimplente_90d) AS total_inadimplentes,
     ROUND(SUM(CASE WHEN inadimplente_90d = 1 THEN 1.0 ELSE 0 END) / COUNT(*) * 100, 2) AS percentual_inadimplencia
 FROM contratos
 GROUP BY num_emprestimos_anteriores;

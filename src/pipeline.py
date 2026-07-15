@@ -1,12 +1,12 @@
 import pandas as pd
 import sqlite3 as sql
-caminho = ""
+
 
 #importação de dados do csv e criação de database
 def carregar_dados(caminho):
     return pd.read_csv(caminho, header=0, encoding= "utf-8")
 
-def validar_dados(df):
+def explorar_dados(df):
 
     print("\nDimensão da base") #verifficar quantos elementos tem nessa tabela linhas e colunas
     print(df.shape)
@@ -51,14 +51,14 @@ def main():
     print("Programa iniciado")
 
     df = carregar_dados(
-        "dados/case_inadimplencia_dataset.csv"
+        "dados/raw/case_inadimplencia_dataset.csv"
     )
 
-    validar_dados(df)
+    explorar_dados(df)
 
     conn = criar_banco(
         df,
-        "dados/inadimplencia.db"
+        "dados/processed/inadimplencia.db"
     )
 
     conn.close()
