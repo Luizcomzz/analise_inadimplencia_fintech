@@ -1,69 +1,99 @@
+﻿import os
+import sqlite3
 import pandas as pd
-import sqlite3 as sql
 
 
-#importação de dados do csv e criação de database
-def carregar_dados(caminho):
-    return pd.read_csv(caminho, header=0, encoding= "utf-8")
+# ================================================================
+# Constantes — caminhos centralizados para fácil manutenção
+# ================================================================
+RAW_PATH = "dados/raw/case_inadimplencia_dataset.csv"
+DB_PATH  = "dados/processed/inadimplencia.db"
 
-def explorar_dados(df):
 
-    print("\nDimensão da base") #verifficar quantos elementos tem nessa tabela linhas e colunas
+def carregar_dados(caminho: str) -> pd.DataFrame:
+    """
+    Lê o arquivo CSV de contratos e retorna um DataFrame.
+
+    Parâmetros:
+        caminho (str): Caminho relativo ou absoluto para o arquivo CSV.
+
+    Retorna:
+        pd.DataFrame: DataFrame com os dados carregados.
+
+    Lança:
+        FileNotFoundError: Se o arquivo não existir no caminho informado.
+    """
+    if not os.path.exists(caminho):
+        raise FileNotFoundError(f"Arquivo não encontrado: {caminho}")
+    return pd.read_csv(caminho, encoding="utf-8")
+
+
+def explorar_dados(df: pd.DataFrame) -> None:
+    """
+    Exibe um diagnóstico completo do DataFrame no console.
+    Útil para validação rápida da qualidade dos dados na etapa de ingestão.
+
+    Parâmetros:
+        df (pd.DataFrame): DataFrame a ser explorado.
+    """
+    print("\n--- Dimensão da base (linhas x colunas) ---")
     print(df.shape)
 
-    print("\nNome das colunas") #organizar os nomes das colunar para ver pesquisa em SQL
-    print(df.columns)
+    print("\n--- Nome das colunas ---")
+    print(df.columns.tolist())
 
-    print("\nInformações da base") #só para ver os tipos dos atributos e se possui alguma valor nulo, o que facilita parte do trabalho de datacleaning
+    print("\n--- Tipos e valores nulos por coluna ---")
     print(df.info())
 
-    print("\nDescrição estatística") #apresentação das medidas resumos, media, mediana, quartis, desvio padrão
+    print("\n--- Estatísticas descritivas ---")
     print(df.describe())
 
-    print("\nValores nulos") #contar nulos, dessa vez deixando explicito cada coluna
+    print("\n--- Contagem de valores nulos por coluna ---")
     print(df.isnull().sum())
 
-    print("\nDuplicados") #contar dados duplicados o que facilita a limpeza
+    print("\n--- Registros duplicados ---")
     print(df.duplicated().sum())
 
-    print("\nValores únicos", end ="\n") #descobri os valores semelhantes que tem no banco, ajuda a depois saber quais podem ser agruados em faixas
-    print(df.nunique()) 
+    print("\n--- Cardinalidade por coluna (valores únicos) ---")
+    print(df.nunique())
 
-    print(df.head()) #apresenta as primeiras 5 linhas da tabela para conferiro modelo dos dados
+    print("\n--- Primeiras linhas da base ---")
+    print(df.head())
 
-#conectar com o banco de dados
-def criar_banco(df, nome_banco):
 
-    conn = sql.connect(nome_banco)
+def criar_banco(df: pd.DataFrame, caminho_banco: str) -> None:
+    """
+    Persiste o DataFrame na tabela 'contratos' de um banco SQLite.
+    Usa context manager para garantir que a conexão seja fechada
+    mesmo em caso de erro.
 
-    df.to_sql(
-        "contratos",
-        conn,
-        if_exists="replace",
-        index=False
-    )
+    Parâmetros:
+        df (pd.DataFrame): DataFrame com os dados a serem persistidos.
+        caminho_banco (str): Caminho para o arquivo .db do SQLite.
+    """
+    with sqlite3.connect(caminho_banco) as conn:
+        df.to_sql(
+            "contratos",
+            conn,
+            if_exists="replace",
+            index=False
+        )
 
-    return conn
-    print(conn)
 
-def main():
+def main() -> None:
+    """Orquestra o pipeline de ingestão e persistência dos dados."""
+    print("Pipeline iniciado.")
 
-    print("Programa iniciado")
+    try:
+        df = carregar_dados(RAW_PATH)
+        explorar_dados(df)
+        criar_banco(df, DB_PATH)
+        print(f"\nBanco de dados criado com sucesso em: {DB_PATH}")
 
-    df = carregar_dados(
-        "dados/raw/case_inadimplencia_dataset.csv"
-    )
+    except FileNotFoundError as e:
+        print(f"\n[ERRO] {e}")
+        print("Verifique se o arquivo CSV está na pasta correta e tente novamente.")
 
-    explorar_dados(df)
-
-    conn = criar_banco(
-        df,
-        "dados/processed/inadimplencia.db"
-    )
-
-    conn.close()
-
-    print("Banco criado com sucesso!")
 
 if __name__ == "__main__":
     main()
