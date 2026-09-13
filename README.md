@@ -83,7 +83,7 @@ Analise_Inadimplencia/
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/Analise_Inadimplencia.git
+git clone https://github.com/Luizcomzz/Analise_Inadimplencia.git
 cd Analise_Inadimplencia
 
 # 2. Crie e ative o ambiente virtual
