@@ -157,4 +157,4 @@ Dashboard no Power BI conectado ao banco SQLite, com indicadores e análises seg
 
 ## 👤 Autor
 
-Desenvolvido por **Luiz** · [LinkedIn](https://linkedin.com/in/seu-perfil) · [GitHub](https://github.com/seu-usuario)
+Desenvolvido por **Luiz** · [LinkedIn](https://www.linkedin.com/in/luiz-honorio-silva/) · [GitHub](https://github.com/Luizcomzz/)
