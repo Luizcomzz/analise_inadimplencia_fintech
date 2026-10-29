@@ -83,7 +83,7 @@ Analise_Inadimplencia/
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/Analise_Inadimplencia.git
+git clone https://github.com/Luizcomzz/Analise_Inadimplencia.git
 cd Analise_Inadimplencia
 
 # 2. Crie e ative o ambiente virtual
@@ -157,4 +157,4 @@ Dashboard no Power BI conectado ao banco SQLite, com indicadores e análises seg
 
 ## 👤 Autor
 
-Desenvolvido por **Luiz** · [LinkedIn](https://www.linkedin.com/in/luiz-honorio-silva/) · [GitHub](https://github.com/Luizcomzz/)
+Desenvolvido por **Luiz** · [LinkedIn](https://linkedin.com/in/seu-perfil) · [GitHub](https://github.com/seu-usuario)
